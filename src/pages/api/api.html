@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><b>Buscar Endereço </b><ion-icon name="archive"></ion-icon></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list inset>
+  
+      <ion-item>
+        <ion-label>CEP</ion-label>
+        <ion-input type="number" [(ngModel)]="cep"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+    <button ion-button block (click)="GetAddress()">Consultar</button>
+  
+    <h4 id="error">{{errorMessage}}</h4>
+  
+    <ion-list *ngIf="address">  
+      <ion-item>
+            <ion-label floating>Cidade</ion-label>
+            <ion-input type="text" [(ngModel)]="address.localidade"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+            <ion-label floating>Estado</ion-label>
+            <ion-input type="text" [(ngModel)]="address.uf"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+            <ion-label floating>Logradouro</ion-label>
+            <ion-input type="text" [(ngModel)]="address.logradouro"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+            <ion-label floating>Bairro</ion-label>
+            <ion-input type="text" [(ngModel)]="address.bairro"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-content>

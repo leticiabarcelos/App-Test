@@ -1,0 +1,73 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title><b>Atendimento </b><ion-icon name="pulse"></ion-icon></ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="fechar()">
+       <ion-icon name="md-close-circle"></ion-icon>
+      </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+      <ion-label floating>Nome Bichinho:</ion-label>
+      <ion-input type="text" [(ngModel)]="produtoDto.nomeProduto"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Valor consulta:</ion-label>
+      <ion-input type="number"
+
+        [(ngModel)]="produtoDto.valorProduto"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Raça:</ion-label>
+      <ion-select [ngModel]="categoria"
+      [compareWith]="posicionarCategoria"
+      (ionChange)="selecionarCategoria($event)">
+        <ion-option *ngFor="let categoria of listaCategorias"
+          [value]="categoria">
+          {{categoria.descricao}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Idade:</ion-label>
+      <ion-input type="number"
+
+        [(ngModel)]="produtoDto.quantidadeEstoque"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Domicílio:</ion-label>
+      <ion-toggle  [(ngModel)]="produtoDto.ativo" ></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Data Atendimento:</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY"
+        [(ngModel)]="produtoDto.dataValidadeProduto">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button icon-left type="button" color="light" (click)="salvarFoto()">
+        Foto <ion-icon name="camera"></ion-icon>
+      </button>
+      <img [src]="produtoDto.fotoProduto" *ngIf="produtoDto.fotoProduto"/>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button icon-left full type="button" color="light" (click)="lerCodigoDeBarra()">
+        Codigo de Barra <ion-icon name="barcode"></ion-icon>
+      </button>
+      {{produtoDto.codigoDeBarra}}
+    </ion-item>
+    <button ion-button full large (click)="salvar()">
+        Salvar
+    </button>
+
+</ion-content>

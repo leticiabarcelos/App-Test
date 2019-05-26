@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar color="dark">
+      <ion-title>
+        <b>
+          Login
+        </b>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value);$event.preventDefault()">
+
+    <ion-item>
+      <ion-label floating>Username:</ion-label>
+      <ion-input formControlName="matricula" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password:</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+
+    <button ion-button full color="primary" [disabled]="!loginForm.valid" style="margin-top: 20px;" type="submit">
+      Logar
+    </button>
+
+  </form>
+
+</ion-content>

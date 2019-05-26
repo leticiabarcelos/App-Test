@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Entre em contato <ion-icon name="mail"></ion-icon></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p>
+    Área reservada para envio de e-mail aos clientes.
+  </p>
+  <ion-list>
+    <ion-item class="no-background-container">
+      <ion-label floating>Email</ion-label>
+      <ion-input [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <button ion-button (click)="enviarEmailDinamico()">Enviar</button>
+  </ion-list>
+</ion-content>

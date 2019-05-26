@@ -1,0 +1,22 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><b>Pipe </b><ion-icon name="logo-steam"></ion-icon></ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <div>
+    <ion-item no-lines class="no-background-container">
+      <ion-label floating>Troque o texto para minúsculo</ion-label>
+      <ion-input type="text" [(ngModel)]="toLowerCase"></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <p>
+      <b>Palavra: </b>{{toLowerCase | transformaMinusculo}}</p>
+  </div>
+</ion-content>
